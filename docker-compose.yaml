@@ -3,7 +3,7 @@ version: "3.8"
 services:
     postgres:
         image: postgres:15.2-alpine
-        restart: always
+        # restart: always
         environment:
           POSTGRES_USER: ${DB_USERNAME}
           POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -12,7 +12,7 @@ services:
           - ${DB_PORT}:5432
     redis:
         image: redis:7.2.4
-        restart: always
+        # restart: always
         ports:
             - "6379:6379"
 
@@ -22,7 +22,7 @@ services:
             - "2181:2181"
         environment:
             - ALLOW_ANONYMOUS_LOGIN=yes
-        restart: always
+        # restart: always
 
     kafka:
         image: "bitnami/kafka:3.1-debian-10"
@@ -36,7 +36,7 @@ services:
             - ALLOW_PLAINTEXT_LISTENER=yes
         depends_on:
             - zookeeper
-        restart: always
+        # restart: always
 
     minio:
         image: minio/minio:latest
@@ -47,4 +47,4 @@ services:
         environment:
             - MINIO_ROOT_USER=ROOTUSER
             - MINIO_ROOT_PASSWORD=CHANGEME123
-        restart: always
+        # restart: always
