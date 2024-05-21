@@ -9,6 +9,8 @@ import { User } from './entity/user.entity';
 import { Folder } from './entity/folder.entity';
 import { Media } from './entity/media.entity';
 // import { Media } from './entity/medias.entity';
+import { SessionModule } from './session/session.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -34,6 +36,8 @@ import { Media } from './entity/media.entity';
       },
     }),
     MediaModule,
+    SessionModule,
+    UserModule,
   ],
   controllers: [AppController, MediaController],
   providers: [AppService],

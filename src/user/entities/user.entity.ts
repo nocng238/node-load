@@ -1,7 +1,8 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Media } from './media.entity';
-import { Folder } from './folder.entity';
-import { BaseEntity } from './base.entity';
+import { BaseEntity } from 'src/entity/base.entity';
+import { Media } from 'src/entity/media.entity';
+import { Folder } from 'src/entity/folder.entity';
+import { Session } from 'src/session/entities/session.entity';
 
 @Entity('users')
 export class User extends BaseEntity {
@@ -15,6 +16,9 @@ export class User extends BaseEntity {
 
   @Column()
   password: string;
+
+  @OneToMany(() => Session, (session) => session.user)
+  session: Session;
 
   @OneToMany(() => Media, (media) => media.user)
   medias: Media[];

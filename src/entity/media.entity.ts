@@ -1,14 +1,10 @@
 import { Entity, ManyToOne } from 'typeorm';
-import {
-  BaseEntity,
-  Column,
-  CreateDateColumn,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from './user.entity';
 import { Folder } from './folder.entity';
-@Entity('medias')
+import { BaseEntity } from './base.entity';
+import { ETable } from 'src/libs/enums/table.enum';
+@Entity(ETable.MEDIA)
 export class Media extends BaseEntity {
   @PrimaryGeneratedColumn('uuid', {
     primaryKeyConstraintName: 'media_primary_key',
@@ -32,10 +28,4 @@ export class Media extends BaseEntity {
     // onDelete: 'CASCADE',
   })
   folder: Folder;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }
