@@ -11,6 +11,7 @@ import { Media } from './entity/media.entity';
 // import { Media } from './entity/medias.entity';
 import { SessionModule } from './session/session.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { UserModule } from './user/user.module';
     MediaModule,
     SessionModule,
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController, MediaController],
   providers: [AppService],
